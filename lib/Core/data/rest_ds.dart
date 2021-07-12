@@ -9,7 +9,7 @@ import 'Mylogin.dart';
 
 class RestDatasource {
   NetworkUtil _netUtil = new NetworkUtil();
-  static final BASE_URL = "http://192.168.116.148/elc/apiconnect.php";
+  static final BASE_URL = "http://192.168.233.149/elc/apiconnect.php";
 
   //static final _API_KEY = "somerandomkey";
 

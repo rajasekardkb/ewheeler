@@ -1,11 +1,6 @@
 import 'dart:convert';
 
-import 'package:elc/Core/data/JsonParcer.dart';
 import 'package:elc/Core/data/Mylogin.dart';
-import 'package:elc/Core/data/rest_ds.dart';
-import 'package:elc/Core/model/loginModel.dart';
-import 'package:elc/Core/model/test.dart';
-import 'package:elc/Core/model/user.dart';
 import 'package:elc/UI/Login/Components/already_have_an_account_acheck.dart';
 import 'package:elc/UI/Login/Components/rounded_button.dart';
 import 'package:elc/UI/Login/Components/rounded_input_field.dart';
@@ -14,7 +9,6 @@ import 'package:elc/UI/SignUp/components/or_divider.dart';
 import 'package:elc/UI/SignUp/components/social_icon.dart';
 import 'package:elc/UI/SignUp/signup_screen.dart';
 import 'package:elc/resources/values/app_colors.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -106,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen>
   void _showSnackBar(String text) {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text("Login successful!"),
+        content: Text("Unable To Login!"),
       ),
     );
   }
@@ -225,8 +219,8 @@ class _LoginScreenState extends State<LoginScreen>
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() => _isLoading = false);
 
-    /*// _onHideLoading();
-    _showSnackBar("Login successful!");
+    _onHideLoading();
+/*    _showSnackBar("Login successful!");
     Navigator.of(_ctx).pushReplacementNamed("/home");
     setState(() {
       name = prefs.getString('username');
@@ -235,7 +229,7 @@ class _LoginScreenState extends State<LoginScreen>
   }
 
   void _onHideLoading() {
-    Navigator.pop(scaffoldKey.currentState.context); //pop dialog
+    //Navigator.pop(scaffoldKey.currentState.context); //pop dialog
   }
 
   Future<bool> getLoginState() async {
